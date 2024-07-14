@@ -1,0 +1,104 @@
+/* Stile generale del corpo */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  background-color: #a2a2a2;
+}
+
+
+
+/* Stile dell'intestazione */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Stile della barra di navigazione */
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+/* Stile del contenuto principale */
+main {
+  background-color: #c4c4c4;
+}
+
+/* Stile del piè di pagina */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Stile dei pulsanti */
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+
+/* Stile della tabella */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Stile delle celle della tabella */
+table, th, td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Stile dell'intestazione della tabella */
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Stile delle righe della tabella */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.padding {
+  padding: 20px;
+}
+
+.rotated {
+  display: inline-block;
+  transform: rotate(-45deg);
+}

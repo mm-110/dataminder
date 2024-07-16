@@ -13,9 +13,11 @@ console.log(keypair.publicKey.toBase58());
 const balance = await connection.getBalance(keypair.publicKey);
 console.log(`Account balance: ${balance / 1e9} SOL`);
 
-// const airdropSignature = await connection.requestAirdrop(
-//     keypair.publicKey,
-//     1 * LAMPORTS_PER_SOL
-// );
+const airdropSignature = await connection.requestAirdrop(
+    keypair.publicKey,
+    1 * LAMPORTS_PER_SOL
+);
 
-// console.log("Success. Transaction at https://explorer.solana.com/tx/" + airdropSignature + "?cluster=devnet");
+console.log("Success. Transaction at https://explorer.solana.com/tx/" + airdropSignature + "?cluster=devnet");
+
+const balancePostAirdrop = await connection.getBalance(keypair.publicKey);

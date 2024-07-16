@@ -27,6 +27,10 @@ export function convertPublicKeyToBase64(publicKey: Uint8Array): string {
   return naclUtil.encodeBase64(publicKey);
 }
 
+export function convertBase64ToPublicKey(base64String: string): Uint8Array {
+  return naclUtil.decodeBase64(base64String);
+}
+
 export function loadPublicKeyFromJSON(filePath: string): Uint8Array {
   const data = fs.readFileSync(filePath, 'utf8');
   const json = JSON.parse(data);

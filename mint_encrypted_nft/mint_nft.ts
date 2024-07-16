@@ -6,22 +6,18 @@ import fs from 'fs';
 import { encryptWithPassword, encryptWithPublicKey } from "./encrypt";
 import { extractED25519Seed, ed25519ToX25519, generateX25519PublicKey, convertPublicKeyToBase64, convertBase64ToPublicKey } from './prepare_keys.ts';
 
-// Ho problemi con bundlrStorage
-// Ho che bundlr was renamed to irys in "@metaplex-foundation/js" 0.19.6
-// You'll have to use irysStorage instead of bundlrStorage, and irys.xyz instead of bundlr.network
-
-// ho rimesso bundlrStorage perchè a me non funzionava con iryis :)
-
+const publicKey = process.argv[2];
+const publicKeyBs64 = process.argv[3];
 
 const connection = new Connection(clusterApiUrl("devnet"));
 const wallet = getKeypairFromEnvironment("SECRET_KEY");
 // Here we have to get the password
 const password = "aaaa"
 // Prepare the public key for asymmetric encryption
-const ed25519Seed = extractED25519Seed(wallet);
-const x25519PrivateKey = ed25519ToX25519(ed25519Seed);
-const x25519PublicKey = generateX25519PublicKey(x25519PrivateKey);
-const bs64 = "MUV1WfK3/VmXumctcjdi+ZTGdPDaKa/5LzT6IklEYjA=";
+// const ed25519Seed = extractED25519Seed(wallet);
+// const x25519PrivateKey = ed25519ToX25519(ed25519Seed);
+// const x25519PublicKey = generateX25519PublicKey(x25519PrivateKey);
+const bs64 = publicKeyBs64;
 const back = convertBase64ToPublicKey(bs64);
 console.log(back)
 
@@ -64,7 +60,7 @@ const {uri} = await metaplex.nfts().uploadMetadata(dataStructure)
 console.log(uri);
 
 
-const owner = new PublicKey("2xtFs6X62DG3fyKGDafDL5GswcjZyLPnUcn6wgRXYsyZ");
+const owner = new PublicKey(publicKey);
 
 // Create NFT
 const {nft} = await metaplex.nfts().create(

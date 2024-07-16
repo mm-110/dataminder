@@ -76,11 +76,11 @@ function GetMyReceivedRequests() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>NFT NAME</th>
-                        <th>NFT PUBLIC KEY REQUESTER</th>
-                        <th>NFT PKX REQUESTER</th>
-                        <th>NFT URI</th>
-                        <th>STATUS</th>
+                        <th>NAME</th>
+                        <th>NFT Public Key Requester</th>
+                        {/* <th>NFT PKX25519 Requester</th> */}
+                        <th>URI</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -91,7 +91,7 @@ function GetMyReceivedRequests() {
                             <td>{record.id}</td>
                             <td>{record.nft.name}</td>
                             <td>{record.nft.user.keypair.public_key}</td>
-                            <td>{record.requester_pkx25519}</td>
+                            {/* <td>{record.requester_pkx25519}</td> */}
                             <td><a href={record.nft.uri} target="_blank" rel="noopener noreferrer">{record.nft.uri}</a></td>
                             <td>{record.status}</td>
                             <td>

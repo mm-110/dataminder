@@ -78,10 +78,10 @@ function GetMyForwardedRequests() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>NFT NAME</th>
-                        <th>NFT PUBLIC KEY OWNER</th>
-                        <th>NFT URI</th>
-                        <th>STATUS</th>
+                        <th>Name</th>
+                        <th>NFT Public Key Owner</th>
+                        <th>URI</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -97,8 +97,8 @@ function GetMyForwardedRequests() {
                                 {record.status === 'Accepted' ? 
                                     <button onClick={() => handlePay(record.nft.user.keypair.public_key, record.id)}>Pay</button> :
                                     (record.status === 'Payed' ? 
-                                        <Link href={`/detail/${record.id}`}>Visualizza Dettagli</Link> : 
-                                        <p>Il pagamento non è abilitato</p>
+                                        <Link href={`/detail/${record.id}`}>View Detail</Link> : 
+                                        <p>Payment Not Allowed</p>
                                     )
                                 }
                             </td>

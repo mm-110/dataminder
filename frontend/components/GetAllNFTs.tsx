@@ -36,7 +36,7 @@ function GetAllNFTs() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>OWNER</th>
+                        <th>Owner</th>
                         <th>Name</th>
                         <th>Mint Address</th>
                         <th>URI</th>

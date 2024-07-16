@@ -13,13 +13,16 @@ const Home: NextPage = (props) => {
   }
 
   return (
-    <div>
+    <div >
       <Navbar />
       <h1>Home</h1>
-      <h3>Register</h3>
-      <Register />
-      <h3>Login</h3>
-      <Login />
+      <div className='frame'>
+        <h3>Register</h3>
+        <Register />
+        <h3>Login</h3>
+        <Login />
+      </div>
+      
     </div>
   );
 }

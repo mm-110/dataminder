@@ -25,7 +25,6 @@ function GetPayedNFTDetail({ id }) {
     const [loadingMetadata, setLoadingMetadata] = useState(false); // Aggiungi questo stato
 
     const token = localStorage.getItem('authToken');
-    console.log("tokennnnnn", token);
 
     useEffect(() => {
         // Sostituisci con l'URL del tuo server e l'endpoint appropriato
@@ -86,7 +85,7 @@ function GetPayedNFTDetail({ id }) {
     return (
         <div>
             <h1>Record</h1>
-            <p>ID del record: {record.id}</p>
+            <p>Record ID: {record.id}</p>
             <p>NFT ID: {record.nft_id}</p>
 
             {/* Aggiunto rendering dei metadati */}

@@ -10,27 +10,30 @@ const Profile: NextPage = () => {
     <div>
       <Navbar />
       <h1>Profile</h1>
-      <CreateOrShowKeypair />
-      <RequestAirdrop />
-      <LoadNFTs />
+      <div className='frame-profile'>
+        <CreateOrShowKeypair />
+        <RequestAirdrop />
+      </div>
+      
       <div>
+        <LoadNFTs />
         <Link href="/myNFTs">
-          <button>Vai alla pagina MyNFTs</button>
+          <button>MyNFTs</button>
         </Link>
       </div>
       <div>
         <Link href="/explorer">
-          <button>Vai alla pagina Explorer</button>
+          <button>Explorer</button>
         </Link>
       </div>
       <div>
         <Link href="/receivedRequests">
-          <button>Vai alla pagina Received Requests</button>
+          <button>Received Requests</button>
         </Link>
       </div>
       <div>
         <Link href="/forwardedRequests">
-          <button>Vai alla pagina Forwarded Requests</button>
+          <button>Forwarded Requests</button>
         </Link>
       </div>
       

@@ -80,8 +80,8 @@ function GetNFTDetail({ id }) {
     return (
         <div>
             <h1>Record</h1>
-            <p>Nome: {record.name}</p>
-            <p>ID del record: {record.id}</p>
+            <p>Name: {record.name}</p>
+            <p>Record ID: {record.id}</p>
             <p>Mint Address: {record.mint_address}</p>
             <p>URI: {record.uri}</p>
             <p>Created Time: {record.created_time}</p>

@@ -3,17 +3,27 @@ import { Connection, clusterApiUrl, Keypair, PublicKey } from "@solana/web3.js";
 import "dotenv/config";
 import { getKeypairFromEnvironment } from "@solana-developers/helpers";
 import fs from 'fs';
-import { encryptWithPassword } from "./encrypt";
+import { encryptWithPassword, encryptWithPublicKey } from "./encrypt";
+import { extractED25519Seed, ed25519ToX25519, generateX25519PublicKey, convertPublicKeyToBase64, convertBase64ToPublicKey } from './prepare_keys.ts';
 
 // Ho problemi con bundlrStorage
 // Ho che bundlr was renamed to irys in "@metaplex-foundation/js" 0.19.6
 // You'll have to use irysStorage instead of bundlrStorage, and irys.xyz instead of bundlr.network
+
+// ho rimesso bundlrStorage perchè a me non funzionava con iryis :)
 
 
 const connection = new Connection(clusterApiUrl("devnet"));
 const wallet = getKeypairFromEnvironment("SECRET_KEY");
 // Here we have to get the password
 const password = "aaaa"
+// Prepare the public key for asymmetric encryption
+const ed25519Seed = extractED25519Seed(wallet);
+const x25519PrivateKey = ed25519ToX25519(ed25519Seed);
+const x25519PublicKey = generateX25519PublicKey(x25519PrivateKey);
+const bs64 = "MUV1WfK3/VmXumctcjdi+ZTGdPDaKa/5LzT6IklEYjA=";
+const back = convertBase64ToPublicKey(bs64);
+console.log(back)
 
 const metaplex = Metaplex.make(connection)
     .use(keypairIdentity(wallet))
@@ -43,17 +53,24 @@ const nftName = jsonData.name;
 delete jsonData.name;
 // Encrypt the JSON data
 const encryptedJsonData = encryptJsonData(jsonData, password)
+// Encrypt the password
+const encryptedPassword = encryptWithPublicKey(back, password)
+const dataStructure = {
+    "data": encryptedJsonData,
+    "password": encryptedPassword
+}
 // Create NFT's metadata
-const {uri} = await metaplex.nfts().uploadMetadata(encryptedJsonData)
+const {uri} = await metaplex.nfts().uploadMetadata(dataStructure)
 console.log(uri);
 
 
-const owner = new PublicKey("46MxAaTreYTuixjRuQn4JFoVDo4gzLg3dQ2HGHhffn3e");
+const owner = new PublicKey("2xtFs6X62DG3fyKGDafDL5GswcjZyLPnUcn6wgRXYsyZ");
 
 // Create NFT
 const {nft} = await metaplex.nfts().create(
     {
         uri: uri,
+        password: encryptedPassword,
         name: nftName,
         sellerFeeBasisPoints: 0,
         tokenOwner: owner

@@ -43,7 +43,7 @@ function GetMyNFTs() {
                             <td>{record.created_time}</td>
                             <td>
                                 <Link href={`/record/${record.id}`}>
-                                    <a>Visualizza dettagli</a>
+                                    <a>View Detail</a>
                                 </Link>
                             </td>
                         </tr>

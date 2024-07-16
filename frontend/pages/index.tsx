@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Register from '../components/Register'
 import Login from '../components/Login'
-import Navbar from '../components/Navbar'
+import NavbarSignIn from '../components/NavbarSignIn'
 
 const Home: NextPage = (props) => {
   const router = useRouter();
@@ -14,7 +14,7 @@ const Home: NextPage = (props) => {
 
   return (
     <div >
-      <Navbar />
+      <NavbarSignIn />
       <h1>Home</h1>
       <div className='frame'>
         <h3>Register</h3>

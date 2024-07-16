@@ -13,29 +13,27 @@ const Profile: NextPage = () => {
       <div className='frame-profile'>
         <CreateOrShowKeypair />
         <RequestAirdrop />
+        <LoadNFTs />
       </div>
       
-      <div>
-        <LoadNFTs />
-        <Link href="/myNFTs">
-          <button>MyNFTs</button>
-        </Link>
-      </div>
-      <div>
-        <Link href="/explorer">
-          <button>Explorer</button>
-        </Link>
-      </div>
-      <div>
-        <Link href="/receivedRequests">
-          <button>Received Requests</button>
-        </Link>
-      </div>
-      <div>
-        <Link href="/forwardedRequests">
-          <button>Forwarded Requests</button>
-        </Link>
-      </div>
+      {/* <div className="dropdown">
+        <button className="dropbtn">Menu</button>
+        <div className="dropdown-content">
+          
+          <Link href="/myNFTs">
+            <a>MyNFTs</a>
+          </Link>
+          <Link href="/explorer">
+            <a>Explorer</a>
+          </Link>
+          <Link href="/receivedRequests">
+            <a>Received Requests</a>
+          </Link>
+          <Link href="/forwardedRequests">
+            <a>Forwarded Requests</a>
+          </Link>
+        </div>
+      </div> */}
       
     </div>
   );
